@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/chai-hens-voucher-admin.iml" filepath="$PROJECT_DIR$/chai-hens-voucher-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chai-hens-voucher-admin-api/chai-hens-voucher-admin-api.iml" filepath="$PROJECT_DIR$/chai-hens-voucher-admin-api/chai-hens-voucher-admin-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chai-hens-voucher-admin-app/chai-hens-voucher-admin-app.iml" filepath="$PROJECT_DIR$/chai-hens-voucher-admin-app/chai-hens-voucher-admin-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chai-hens-voucher-admin-data/chai-hens-voucher-admin-data.iml" filepath="$PROJECT_DIR$/chai-hens-voucher-admin-data/chai-hens-voucher-admin-data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chai-hens-voucher-admin-parent/chai-hens-voucher-admin-parent.iml" filepath="$PROJECT_DIR$/chai-hens-voucher-admin-parent/chai-hens-voucher-admin-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chai-hens-voucher-admin-service/chai-hens-voucher-admin-service.iml" filepath="$PROJECT_DIR$/chai-hens-voucher-admin-service/chai-hens-voucher-admin-service.iml" />
+    </modules>
+  </component>
+</project>
