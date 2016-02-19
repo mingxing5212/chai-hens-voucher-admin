@@ -46,6 +46,10 @@
             <groupId>me.mingxing5212</groupId>
             <artifactId>chai-hens-voucher-admin-data</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.sitemesh</groupId>
+            <artifactId>sitemesh</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
