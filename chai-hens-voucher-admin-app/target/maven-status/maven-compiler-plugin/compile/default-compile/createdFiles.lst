@@ -1,9 +1,7 @@
+me/mingxing5212/chaihens/voucher/admin/configure/ApplicationConfigurerAdapter.class
 me/mingxing5212/chaihens/voucher/admin/configure/WebConfigurationProperties.class
 me/mingxing5212/chaihens/voucher/admin/Application.class
 me/mingxing5212/chaihens/voucher/admin/configure/LoggingProperties.class
-me/mingxing5212/chaihens/voucher/admin/configure/WebConfiguration$1.class
 me/mingxing5212/chaihens/voucher/admin/configure/WebConfigurationProperties$ThreadPool.class
-me/mingxing5212/chaihens/voucher/admin/configure/DatabaseConfiguration.class
 me/mingxing5212/chaihens/voucher/admin/configure/WebConfiguration.class
-me/mingxing5212/chaihens/voucher/admin/configure/MybatisConfiguration.class
-me/mingxing5212/chaihens/voucher/admin/configure/ChaihensVoucherAdminDatabaseProperties.class
+me/mingxing5212/chaihens/voucher/admin/web/HomeController.class

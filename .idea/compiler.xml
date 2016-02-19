@@ -24,6 +24,7 @@
         <processorPath useClasspath="true" />
         <module name="chai-hens-merchant-app" />
         <module name="chai-hens-voucher-admin-api" />
+        <module name="chai-hens-voucher-admin-app" />
         <module name="chai-hens-voucher-admin-data" />
         <module name="chai-hens-voucher-admin-service" />
       </profile>
@@ -32,6 +33,7 @@
       <module name="chai-hens-merchant-app" target="1.5" />
       <module name="chai-hens-voucher-admin" target="1.5" />
       <module name="chai-hens-voucher-admin-api" target="1.5" />
+      <module name="chai-hens-voucher-admin-app" target="1.5" />
       <module name="chai-hens-voucher-admin-data" target="1.5" />
       <module name="chai-hens-voucher-admin-parent" target="1.5" />
       <module name="chai-hens-voucher-admin-service" target="1.5" />
