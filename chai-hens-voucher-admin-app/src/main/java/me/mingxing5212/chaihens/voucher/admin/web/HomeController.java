@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @date 31/1/16
  */
 @Controller
-@RequestMapping(value = "/admin")
+@RequestMapping(value = "/")
 public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public String index(){
-        return "index";
+    public String dashboard(){
+        return "home/dashboard";
     }
 }
