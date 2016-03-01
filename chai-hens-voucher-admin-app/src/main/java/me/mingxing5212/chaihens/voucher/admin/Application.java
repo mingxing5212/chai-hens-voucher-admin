@@ -7,10 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.velocity.VelocityAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication 
 @EnableAutoConfiguration(exclude = { VelocityAutoConfiguration.class })
 @MapperScan("me.mingxing5212.chaihens.voucher.admin.data")
+@ImportResource({"classpath:dubbo-consumer.xml"})
 public class Application extends SpringBootServletInitializer {
 
     @Override

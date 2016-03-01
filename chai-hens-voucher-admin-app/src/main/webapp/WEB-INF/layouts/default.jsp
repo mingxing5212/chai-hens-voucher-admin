@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title> ChaiHens | <sitemesh:write property='title'/></title>
+<title> 田园铁锅 | <sitemesh:write property='title'/></title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta http-equiv="Cache-Control" content="no-store" />
 <meta http-equiv="Pragma" content="no-cache" />
@@ -28,7 +28,7 @@
 				<div class="page-bar">
 					<ul class="page-breadcrumb">
 						<li>
-							<a href="index.html">Home</a>
+							<a href="/">首页</a>
 							<i class="fa fa-circle"></i>
 						</li>
 						<li>
