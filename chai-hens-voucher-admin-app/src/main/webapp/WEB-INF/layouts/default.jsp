@@ -13,6 +13,7 @@
 
 <%@ include file="/WEB-INF/layouts/fragment/common-css.jsp"%>
 <%@ include file="/WEB-INF/layouts/fragment/common-js.jsp"%>
+<sitemesh:write property='head'/>
 </head>
 
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
@@ -25,24 +26,6 @@
 		<%@ include file="/WEB-INF/layouts/sidebar/sidebar.jsp"%>
 		<div class="page-content-wrapper">
 			<div class="page-content" style="min-height:1112px">
-				<div class="page-bar">
-					<ul class="page-breadcrumb">
-						<li>
-							<a href="/">首页</a>
-							<i class="fa fa-circle"></i>
-						</li>
-						<li>
-							<span><sitemesh:write property='title'/></span>
-						</li>
-					</ul>
-					<div class="page-toolbar">
-						<div id="dashboard-report-range" class="pull-right tooltips btn btn-sm" data-container="body" data-placement="bottom" data-original-title="Change dashboard date range">
-							<i class="icon-calendar"></i>&nbsp;
-							<span class="thin uppercase hidden-xs">January 22, 2016 - February 20, 2016</span>&nbsp;
-							<i class="fa fa-angle-down"></i>
-						</div>
-					</div>
-				</div>
 				<sitemesh:write property='body'/>
 			</div>
 		</div>

@@ -1,7 +1,7 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<div class="col-md-8 col-sm-12">
+<div class="col-md-8 col-sm-8">
 	<div class="dataTables_paginate paging_bootstrap">
 		<ul class="pagination">
 			<!-- first page -->
@@ -106,7 +106,7 @@
 			<!-- jump page -->
 			<c:if test="${1 != seed.totalPages}">
 				<li data-lp="${seed.totalPages}" class="next">
-					<input name="custompage" type="text" style="width: 42px; height:32px; display: inline;border: 1px solid #ddd;" title="输入页数跳转."/>
+					<input name="custompage" type="text" style="width: 42px; height:33px; display: inline;border: 1px solid #ddd;" title="输入页数跳转."/>
 				</li>
 			</c:if>
 		</ul>

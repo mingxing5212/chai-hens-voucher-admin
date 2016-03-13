@@ -1,7 +1,7 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="v3portal" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="mx" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@ attribute name="position" required="true" rtexprvalue="true" %>
@@ -26,15 +26,15 @@
 	<div class="row">
 		<c:choose>
 			<c:when test="${position eq 'above' }">
-				<div class="col-md-4 col-sm-12">
+				<div class="col-md-4 col-sm-4">
 					<div class="dataTables_length">
-						<label>显示 <select class="form-control input-xsmall" onchange="javascript:self.location.href='${ctx}/${seed.actionPath}?pagesize='+options[selectedIndex].value+'${queryStr}${pageOrder}'"><c:forEach var="pagesize" items="${pageSizes}"><option value="${pagesize}" <c:if test="${seed.pagesize eq pagesize}">selected="selected"</c:if>>${pagesize}</option></c:forEach></select> 项结果</label>
+						<label>显示 <select class="form-control input-sm input-xsmall input-inline" onchange="javascript:self.location.href='${ctx}/${seed.actionPath}?pagesize='+options[selectedIndex].value+'${queryStr}${pageOrder}'"><c:forEach var="pagesize" items="${pageSizes}"><option value="${pagesize}" <c:if test="${seed.pagesize eq pagesize}">selected="selected"</c:if>>${pagesize}</option></c:forEach></select> 项结果</label>
 					</div>
 				</div>
 			</c:when>
 			<c:otherwise>
-				<div class="col-md-4 col-sm-12">
-					<div class="dataTables_info">	
+				<div class="col-md-4 col-sm-4">
+					<div class="dataTables_info">
 						<c:choose>
 							<c:when test="${seed.totalSize < seed.endPosition}">
 								<label>
@@ -53,7 +53,7 @@
 				</div>
 			</c:otherwise>
 		</c:choose>
-		<v3portal:_pagination/>
+		<mx:_pagination/>
 		<c:if test="${position eq 'below' && 1 != seed.totalPages}">
 			<script type="text/javascript">
 				 $('input[name=custompage]').each(function() {

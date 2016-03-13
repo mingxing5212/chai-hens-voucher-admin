@@ -1,11 +1,11 @@
 package me.mingxing5212.chaihens.voucher.admin.configure;
 
+import org.apache.jasper.compiler.JspConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.DispatcherServlet;
-
 
 @Configuration
 @EnableConfigurationProperties(WebConfigurationProperties.class)

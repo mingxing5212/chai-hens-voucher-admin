@@ -67,6 +67,11 @@
             </dependency>
             <dependency>
                 <groupId>me.mingxing5212</groupId>
+                <artifactId>chai-hens-eggs</artifactId>
+                <version>${chai-hens-common-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.mingxing5212</groupId>
                 <artifactId>chai-hens-voucher-api</artifactId>
                 <version>${chai-hens-voucher-version}</version>
             </dependency>

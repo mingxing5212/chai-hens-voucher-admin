@@ -7,6 +7,6 @@
 
     <dubbo:application name="chaihens-voucher-admin" owner="mingxingli" organization="mingxing5212"/>
     <dubbo:registry address="zookeeper://192.168.99.100:32772"/>
-	<dubbo:protocol host="192.168.0.111"/>
+	<dubbo:protocol host="192.168.1.103"/>
     <dubbo:reference id="voucherAPI" interface="me.mingxing5212.chaihens.voucher.api.IVoucherAPI"/>
 </beans>

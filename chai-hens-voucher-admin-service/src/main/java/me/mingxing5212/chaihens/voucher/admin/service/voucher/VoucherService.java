@@ -1,6 +1,8 @@
 package me.mingxing5212.chaihens.voucher.admin.service.voucher;
 
+import me.mingxing5212.chaihens.component.VoucherResultComponent;
 import me.mingxing5212.chaihens.component.VoucherSearchComponent;
+import me.mingxing5212.chaihens.domain.MerchantUser;
 import me.mingxing5212.chaihens.domain.Voucher;
 import me.mingxing5212.chaihens.domain.VoucherStatus;
 import me.mingxing5212.chaihens.domain.VoucherType;
@@ -8,9 +10,8 @@ import me.mingxing5212.chaihens.voucher.api.IVoucherAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * 代金券
@@ -29,11 +30,27 @@ public class VoucherService {
      * @param merchantId
      * @return
      */
-    public List<Voucher> getDraftCashVouchers(Long merchantId){
+    public VoucherResultComponent getCashVouchers(Long merchantId, Integer startIndex, Integer endIndex){
         VoucherSearchComponent voucherSearchComponent = new VoucherSearchComponent();
-        voucherSearchComponent.setVoucherStatus(Optional.of(Arrays.asList(VoucherStatus.CREATED)));
-        voucherSearchComponent.setVoucherTypes(Optional.of(Arrays.asList(VoucherType.CASH)));
+        List<VoucherStatus> voucherStatuses = new ArrayList<VoucherStatus>();
+        voucherStatuses.add(VoucherStatus.CREATED);
+        voucherSearchComponent.setVoucherStatus(voucherStatuses);
+        List<VoucherType> voucherTypes = new ArrayList<VoucherType>();
+        voucherTypes.add(VoucherType.CASH);
+        voucherSearchComponent.setVoucherStatus(voucherStatuses);
+        voucherSearchComponent.setVoucherTypes(voucherTypes);
+        voucherSearchComponent.setStart(startIndex);
+        voucherSearchComponent.setEnd(endIndex);
         return this.getVouchers(merchantId, voucherSearchComponent);
+    }
+
+    /**
+     * 创建代金券
+     * @param voucher
+     * @return
+     */
+    public Long createCashVouchers(Voucher voucher, MerchantUser merchantUser){
+        return voucherAPI.addVoucher(voucher, merchantUser);
     }
 
     /**
@@ -42,8 +59,8 @@ public class VoucherService {
      * @param voucherSearchComponent
      * @return
      */
-    public List<Voucher> getVouchers(Long merchantId, VoucherSearchComponent voucherSearchComponent){
-        voucherSearchComponent.setMerchantId(Optional.of(merchantId));
+    public VoucherResultComponent getVouchers(Long merchantId, VoucherSearchComponent voucherSearchComponent){
+        voucherSearchComponent.setMerchantId(merchantId);
         return voucherAPI.getVouchers(voucherSearchComponent);
     }
 }
