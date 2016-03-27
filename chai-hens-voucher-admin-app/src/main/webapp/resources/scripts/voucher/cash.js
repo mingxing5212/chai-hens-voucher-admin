@@ -6,13 +6,13 @@ var CashPage = function () {
     var initButtons = function () {
         $("#btnSave").bind("click", function(){
             var textVoucherName = $("#textVoucherName").val();
+            var textVoucherDescription = $("#textVoucherDescription").val();
             var textDenomination = $("#textDenomination").val();
-            var textAmount = $("#textAmount").val();
-            var textVoucherFromTime = $("#textVoucherFromTime").val();
-            var textVoucherToTime = $("#textVoucherToTime").val();
+            var textVoucherEffectiveDays = $("#textVoucherEffectiveDays").val();
+            var textMinimumConsumption = $("#textMinimumConsumption").val();
             var textLimit = $("#textLimit").val();
 
-            CashPage.saveVoucher(textVoucherName, textDenomination, textAmount, textVoucherFromTime, textVoucherToTime, textLimit);
+            CashPage.saveVoucher(textVoucherName, textDenomination, textVoucherEffectiveDays, textMinimumConsumption, textMinimumConsumption, textLimit);
         });
     }
 
@@ -21,8 +21,8 @@ var CashPage = function () {
             initButtons();
         },
 
-        saveVoucher: function(voucherName, denomination, amount, voucherFromTime, voucherToTime, limit){
-            var voucher = {"name" : voucherName, "denomination" : denomination};
+        saveVoucher: function(voucherName, descriptipn, denomination, effectiveDays, minimumConsumption, orderLimit){
+            var voucher = {"name" : voucherName, "description" : descriptipn, "denomination" : denomination, "effectiveDays" : effectiveDays, "minimumConsumption" : minimumConsumption, "orderLimit" : orderLimit};
             $.ajax({
                 method: "POST",
                 dataType: "json",
@@ -31,7 +31,7 @@ var CashPage = function () {
                 data: JSON.stringify({"voucher" : voucher})
             })
             .done(function( msg ) {
-                alert( "Data Saved: " + msg );
+                alert("s");
             });
         }
 

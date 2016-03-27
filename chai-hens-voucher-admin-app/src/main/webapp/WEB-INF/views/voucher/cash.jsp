@@ -98,10 +98,13 @@
               名称
             </th>
             <th>
-              有效日期
+              面值 (元)
             </th>
             <th>
-              截至日期
+              有效期 (天)
+            </th>
+            <th>
+              最低消费(元)
             </th>
             <th>
               状态
@@ -109,7 +112,7 @@
             <th>
               创建人
             </th>
-            <th style="width: 240px;">
+            <th style="width: 280px;">
               操作
             </th>
           </tr>
@@ -119,8 +122,9 @@
             <tr voucherId="${voucher.id}">
               <td>${voucher.code}</td>
               <td>${voucher.name}</td>
-              <td>${voucher.effectiveStartTime}</td>
-              <td>${voucher.effectiveEndTime}</td>
+              <td>${voucher.denomination}</td>
+              <td>${voucher.effectiveDays}</td>
+              <td>${voucher.minimumConsumption}</td>
               <td><mx:vstatus status="${voucher.status.code}"/></td>
               <td></td>
               <td><mx:vactions status="${voucher.status.code}"/></td>
@@ -148,24 +152,44 @@
           <input type="text" class="form-control" id="textVoucherName" placeholder="代金券名称">
         </div>
         <div class="form-group">
+          <label>描述</label>
+          <input type="text" class="form-control" id="textVoucherDescription" placeholder="代金券描述">
+        </div>
+        <div class="form-group">
           <label>面值</label>
-          <input type="text" class="form-control" id="textDenomination" placeholder="代金券面值(人民币)">
+          <div class="input-group">
+            <span class="input-group-addon">
+                <i class="fa fa-cny"></i>
+            </span>
+            <input type="number" id="textDenomination" class="form-control" placeholder="代金券面值(人民币)">
+          </div>
         </div>
         <div class="form-group">
-          <label>发放总量</label>
-          <input type="text" class="form-control" id="textAmount">
+          <label>有效期</label>
+          <div class="input-group">
+            <input type="number" id="textVoucherEffectiveDays" class="form-control" placeholder="代金券有效期">
+            <span class="input-group-addon">
+                天
+            </span>
+          </div>
         </div>
         <div class="form-group">
-          <label>生效时间</label>
-          <input type="text" class="form-control" id="textVoucherFromTime" placeholder="代金券生效时间">
-        </div>
-        <div class="form-group">
-          <label>过期时间</label>
-          <input type="text" class="form-control" id="textVoucherToTime" placeholder="代金券过期时间">
+          <label>最低消费</label>
+          <div class="input-group">
+            <span class="input-group-addon">
+                <i class="fa fa-cny"></i>
+            </span>
+            <input type="number" id="textMinimumConsumption" class="form-control" placeholder="满多少赠送(人民币)">
+          </div>
         </div>
         <div class="form-group">
           <label>订单金额</label>
-          <input type="text" class="form-control" id="textLimit" placeholder="满多少可以使用">
+          <div class="input-group">
+            <span class="input-group-addon">
+                <i class="fa fa-cny"></i>
+            </span>
+            <input type="number" id="textLimit" class="form-control" placeholder="满多少可以使用(人民币)">
+          </div>
         </div>
       </div>
     </form>

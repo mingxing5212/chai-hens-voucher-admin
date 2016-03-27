@@ -44,12 +44,15 @@ public class CashVoucherController {
         cashVoucher.getVoucher().setCode("22222");
         cashVoucher.getVoucher().setType(VoucherType.CASH);
         cashVoucher.getVoucher().setStatus(VoucherStatus.CREATED);
-        cashVoucher.getVoucher().setEffectiveStartTime(System.currentTimeMillis());
-        cashVoucher.getVoucher().setEffectiveEndTime(System.currentTimeMillis());
+        Merchant merchant = new Merchant();
+        merchant.setId(1l);
         MerchantUser user = new MerchantUser();
         user.setName("12");
         user.setId(1l);
-        user.setMerchant(new Merchant());
+        user.setMerchant(merchant);
+        Store store = new Store();
+        store.setId(1l);
+        cashVoucher.getVoucher().setStore(store);
         voucherService.createCashVouchers(cashVoucher.getVoucher(), user);
         return new ResponseComponent();
     }
