@@ -5,14 +5,13 @@ import me.mingxing5212.chaihens.domain.*;
 import me.mingxing5212.chaihens.eggs.Seed;
 import me.mingxing5212.chaihens.eggs.annotation.SeedParam;
 import me.mingxing5212.chaihens.voucher.admin.service.voucher.VoucherService;
+import me.mingxing5212.chaihens.voucher.admin.utils.VoucherCodeGenerator;
+import me.mingxing5212.chaihens.voucher.admin.web.BaseController;
 import me.mingxing5212.chaihens.voucher.admin.web.ResponseComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 代金券
@@ -22,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @RequestMapping(value = "vouchers/cash")
-public class CashVoucherController {
+public class CashVoucherController extends BaseController {
 
     @Autowired
     protected VoucherService voucherService;
@@ -39,21 +38,24 @@ public class CashVoucherController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "create")
-    public @ResponseBody
-    ResponseComponent create(@RequestBody CashVoucher cashVoucher){
-        cashVoucher.getVoucher().setCode("22222");
+    public @ResponseBody ResponseComponent create(@RequestBody CashVoucher cashVoucher){
+        cashVoucher.getVoucher().setCode(VoucherCodeGenerator.generateVoucherCode());
         cashVoucher.getVoucher().setType(VoucherType.CASH);
         cashVoucher.getVoucher().setStatus(VoucherStatus.CREATED);
-        Merchant merchant = new Merchant();
-        merchant.setId(1l);
-        MerchantUser user = new MerchantUser();
-        user.setName("12");
-        user.setId(1l);
-        user.setMerchant(merchant);
-        Store store = new Store();
-        store.setId(1l);
-        cashVoucher.getVoucher().setStore(store);
-        voucherService.createCashVouchers(cashVoucher.getVoucher(), user);
+        cashVoucher.getVoucher().setStore(getSessionStore());
+        voucherService.createCashVoucher(cashVoucher.getVoucher(), getSessionMerchantUser());
+        return new ResponseComponent();
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "update")
+    public @ResponseBody ResponseComponent update(@RequestBody CashVoucher cashVoucher){
+        voucherService.updateCashVoucher(cashVoucher.getVoucher(), getSessionMerchantUser());
+        return new ResponseComponent();
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "delete")
+    public @ResponseBody ResponseComponent delete(@RequestParam Long voucherId){
+        voucherService.deleteCashVoucher(voucherId, getSessionMerchantUser());
         return new ResponseComponent();
     }
 }

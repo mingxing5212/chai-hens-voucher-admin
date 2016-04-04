@@ -59,7 +59,7 @@
           <div class="row">
             <div class="col-md-6">
               <div class="btn-group">
-                <button id="btnCreateVoucher" class="btn sbold green" data-toggle="modal" href="#createVoucherModel"> 新增代金券
+                <button id="btnCreateVoucher" class="btn sbold green"> 新增代金券
                   <i class="fa fa-plus"></i>
                 </button>
               </div>
@@ -72,15 +72,15 @@
                 <ul class="dropdown-menu pull-right">
                   <li>
                     <a href="javascript:;">
-                      <i class="fa fa-print"></i> Print </a>
+                      <i class="fa fa-print"></i> 打印 </a>
                   </li>
                   <li>
                     <a href="javascript:;">
-                      <i class="fa fa-file-pdf-o"></i> Save as PDF </a>
+                      <i class="fa fa-file-pdf-o"></i> 另存为 PDF </a>
                   </li>
                   <li>
                     <a href="javascript:;">
-                      <i class="fa fa-file-excel-o"></i> Export to Excel </a>
+                      <i class="fa fa-file-excel-o"></i> 导出为 Excel </a>
                   </li>
                 </ul>
               </div>
@@ -119,14 +119,14 @@
           </thead>
           <tbody>
           <c:forEach var="voucher" items="${seed.result}">
-            <tr voucherId="${voucher.id}">
+            <tr voucherId="${voucher.id}" voucherName="${voucher.name}" denomination="${voucher.denomination}" description="${voucher.description}" effectiveDays="${voucher.effectiveDays}" minimumConsumption = "${voucher.minimumConsumption}" orderLimit="${voucher.orderLimit}">
               <td>${voucher.code}</td>
               <td>${voucher.name}</td>
               <td>${voucher.denomination}</td>
               <td>${voucher.effectiveDays}</td>
               <td>${voucher.minimumConsumption}</td>
               <td><mx:vstatus status="${voucher.status.code}"/></td>
-              <td></td>
+              <td>${voucher.operatorName}</td>
               <td><mx:vactions status="${voucher.status.code}"/></td>
             </tr>
           </c:forEach>
@@ -147,6 +147,7 @@
   <div class="modal-body form">
     <form role="form">
       <div class="form-body">
+        <input type="hidden" id="textVoucherId" value="">
         <div class="form-group">
           <label>名称</label>
           <input type="text" class="form-control" id="textVoucherName" placeholder="代金券名称">

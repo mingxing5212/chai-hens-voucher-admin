@@ -49,8 +49,26 @@ public class VoucherService {
      * @param voucher
      * @return
      */
-    public Long createCashVouchers(Voucher voucher, MerchantUser merchantUser){
+    public Long createCashVoucher(Voucher voucher, MerchantUser merchantUser){
         return voucherAPI.addVoucher(voucher, merchantUser);
+    }
+
+    /**
+     * 更新代金券
+     * @param voucher
+     * @param merchantUser
+     */
+    public void updateCashVoucher(Voucher voucher, MerchantUser merchantUser){
+        voucherAPI.modifyVoucher(voucher, merchantUser);
+    }
+
+    /**
+     * 移除代金券
+     * @param voucherId
+     * @param merchantUser
+     */
+    public void deleteCashVoucher(Long voucherId, MerchantUser merchantUser){
+        voucherAPI.removeVoucher(voucherId, merchantUser);
     }
 
     /**
